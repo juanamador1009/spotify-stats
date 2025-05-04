@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎵 Spotify Stats
 
-## Getting Started
+**Spotify Stats** is a web application built with Next.js that allows users to view their top tracks and artists on Spotify, organized by different time ranges. The project uses the official Spotify API, integrates `Auth.js` for secure authentication, and is styled with TailwindCSS and ShadCN UI components.
 
-First, run the development server:
+## 📌 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+* 🔐 Spotify authentication via `Auth.js`, requesting secure permissions to access personal listening statistics.
+* 📈 Displays Top 50 most listened tracks and Top 20 most listened artists.
+* ⏳ Time filters: last 4 weeks (short term), last 6 months (medium term), and all-time (long term).
+* 👤 Shows the name and profile picture of the authenticated user.
+* 🏆 Each track/artist includes a ranking number (position).
+* 🎨 Built with TailwindCSS and shadcn/ui for a responsive and modern interface.
+* 🔄 Logout option available at any time.
+* 💁️ Horizontal carousel navigation for top cards.
+
+## 🚀 Technologies Used
+
+* **Next.js 15** + **React 19**
+* **Auth.js** for secure OAuth authentication
+* **Spotify Web API**
+* **TailwindCSS** for rapid and responsive styling
+* **shadcn/ui** for modern, accessible UI components
+
+## 📸 Screenshots
+
+#### View before logging in
+![View before logging in](./assets/design/unauthenticated-view.png)
+
+#### Authenticated view
+![Authenticated view](./assets/design/authenticated-view.png)
+
+## 🛠 Local Installation
+
+### Requirements
+
+* Node.js 18+
+* npm (or pnpm/yarn)
+
+### Environment Variables
+
+Create a `.env.local` file at the root of the project with the following:
+
+```env
+AUTH_SECRET=your_auth_secret
+AUTH_SPOTIFY_ID=your_spotify_client_id
+AUTH_SPOTIFY_SECRET=your_spotify_client_secret
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Steps
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+git clone https://github.com/yourusername/spotify-stats.git
+cd spotify-stats
+npm install --force
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+> ⚠️ `--force` is used for compatibility with React 19 and Next.js 15.
 
-## Learn More
+## 🔴 Token Expiration
 
-To learn more about Next.js, take a look at the following resources:
+The token provided by Spotify lasts for approximately 1 hour. After expiration, users need to log in again to continue using the app.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💡 Future Ideas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* ▶️ Add option to play a preview when clicking a card
+* 🔗 Or redirect directly to the track/artist on Spotify
+* ⬅️➡️ Add navigation buttons to the carousel (in addition to mouse scroll)
+* 🧱 Consider switching layout to a vertical list instead of a horizontal carousel for better mobile UX
 
-## Deploy on Vercel
+## 🔍 Testing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Manual testing covered:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Authentication and correct retrieval of user data
+* Validating that Spotify endpoints respond correctly to filters
+* Verifying that the Top updates based on selected category and time range
+* Basic control of token expiration
