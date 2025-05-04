@@ -25,11 +25,11 @@
 
 #### View before logging in
 
-![View before logging in](/assets/design/unauthenticated-view.png)
+![View before logging in](public/assets/design/unauthenticated-view.png)
 
 #### Authenticated view
 
-![Authenticated view](/assets/design/authenticated-view.png)
+![Authenticated view](public/assets/design/authenticated-view.png)
 
 ## 🛠 Local Installation
 
