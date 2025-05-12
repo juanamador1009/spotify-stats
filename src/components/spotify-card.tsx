@@ -21,7 +21,7 @@ const SpotifyCard: FC<Props> = ({ image, name, ranking, additionalInfo }) => {
                 {ranking}
               </span>
               <div className="flex justify-center items-center overflow-hidden aspect-square relative">
-                <div className="absolute w-full border-2 h-full -translate-x-1/2 group-hover:-translate-x-1/2 sm:translate-x-0 z-10 duration-300 transition-all">
+                <div className="absolute w-full border-2 h-full translate-x-0 z-10 duration-300 transition-all md:group-hover:-translate-x-1/2">
                   <Image
                     src={image}
                     alt="vynil cover"
@@ -31,7 +31,7 @@ const SpotifyCard: FC<Props> = ({ image, name, ranking, additionalInfo }) => {
                 </div>
                 <Image
                   src="/assets/images/disc-vinyl.webp"
-                  className="group-hover:animate-spinDisc p-2"
+                  className="p-2 md:group-hover:animate-spinDisc "
                   alt="vinyl disc"
                   fill
                 />
